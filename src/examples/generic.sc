@@ -11,15 +11,15 @@ object generic {
     def close() = println("close Connection")
   }
   val conn: Connection = new Connection()         //> conn  : examples.generic.Connection = examples.generic$$anonfun$main$1$Conne
-                                                  //| ction$1@7f39425c
+                                                  //| ction$1@833e745
   val msg = withClose(conn) { conn =>
     {
       println("do something with Connection")
-      "123456"
+      123456
     }
   }                                               //> do something with Connection
                                                   //| close Connection
-                                                  //| msg  : String = 123456
+                                                  //| msg  : Int = 123456
 
   println(msg)                                    //> 123456
 
