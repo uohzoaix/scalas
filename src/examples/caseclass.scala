@@ -35,8 +35,9 @@ object caseclass {
     def insert(t: IntTree, v: Int): IntTree = t match {
         case EmptyTree => Node(v, EmptyTree, EmptyTree)
         case Node(elem, left, right) =>
-            if (elem > v) insert(left, v)
-            else insert(right, v)
+            if (elem > v) Node(elem, insert(left, v), right)
+            else if (elem < v) Node(elem, left, insert(right, v))
+            else t
     }
 
     def main(args: Array[String]) {
